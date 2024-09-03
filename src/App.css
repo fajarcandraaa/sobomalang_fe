@@ -1,4 +1,31 @@
-#root {
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
+html{
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+body{
+  background-color: #ffffff;
+  color: lightgray;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+section{
+  height: 100vh;
+  scroll-snap-align: center;
+}
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +66,4 @@
 
 .read-the-docs {
   color: #888;
-}
+} */
