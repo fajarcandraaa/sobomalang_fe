@@ -7,6 +7,10 @@ export default {
     extend: {
       fontFamily: {
         jockey: ['"Jockey One"', 'sans-serif'],
+        inder: ['Inder', 'sans-serif']
+      },
+      colors: {
+        'custom-white': '#f4f4f4', // Add your custom color here
       },
     },
   },

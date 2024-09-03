@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { animate, motion, stagger, useScroll, useSpring, useTransform } from "framer-motion"
 import "./Hero.css"
+import Ourservices from '../ourservices/Ourservices';
 
 const items = [
     {
@@ -15,13 +16,13 @@ const items = [
     },
     {
         id: 3,
-        title: "Management & Maintenance System",
-        desc: "We provide manage & maintenance services to ensure the smooth operation and security of our clients' systems."
+        title: "UNCOVER PLACE",
+        desc: "POPULAR DESTINATION"
     },
     {
         id: 4,
-        title: "IT Consulting",
-        desc: "We offer IT consulting services to help our clients select and implement the right technological solutions."
+        title: "TESTIMONIALS",
+        desc: "WHAT PEOPLE SAY ABOUT US"
     },
 ];
 
@@ -31,59 +32,43 @@ const Single = ({ item }) => {
 
     const {scrollYProgress} = useScroll({
         target:ref,
+        offset:["start start", "end start"]
     });
 
-    const y = useTransform(scrollYProgress, [0,1],[-200, 200]);
+    const swipeLand=useTransform(scrollYProgress, [0,1], ["70%", "-221%"])
+    const swipeSea=useTransform(scrollYProgress, [0,1], ["70%", "-221%"])
+    const swipeClouds=useTransform(scrollYProgress, [0,1], ["-100%", "350%"])
+    const swipeMountain=useTransform(scrollYProgress, [0,1], ["70%", "-222%"])
+    const swipeSun=useTransform(scrollYProgress, [0,1], ["90%", "-300%"])
+    const swipeSky=useTransform(scrollYProgress, [0,1], ["70%", "-221%"])
+    
 
     return (
         <section id='singleContent'>
-            <div className="bg-white">
+            <div className="h-[100%]">
                 {/* Header Section */}
-                <div className="text-center py-8 bg-gray-100">
-                    <h2 className="text-3xl font-bold text-gray-800">{item.title}</h2>
-                    <h1 className="text-4xl font-extrabold text-black mt-4">{item.desc}</h1>
+                <div className="text-center py-8">
+                    <h2 className="text-2xl font-inder text-[#096477]">{item.title}</h2>
+                    <h1 className="text-6xl font-inder font-bold text-black mt-10">{item.desc}</h1>
                 </div>
 
-                {/* City Tour Package Section */}
-                <div className="flex flex-col items-center p-8">
+                <div className="flex flex-col items-center mt-[1%] h-[100%]">
                     {item.id == 2 ? (
-                        <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col md:flex-row">
-                    
-                            <img 
-                                src="https://via.placeholder.com/400x300" 
-                                alt="City Tour" 
-                                className="w-full md:w-1/2 object-cover"
-                            />
-
-                            <div className="p-6 md:w-1/2 flex flex-col justify-center">
-                                <h3 className="text-xl font-bold text-gray-800 mb-2">CITY TOUR</h3>
-                                <p className="text-gray-600 mb-4">
-                                JELAJAHI KEINDAHAN KOTA MALANG DALAM SATU HARI.
-                                CITY TOUR KAMI SIAP MEMBAWA ANDA KE TEMPAT-TEMPAT IKONIK DAN TERSEMBUNYI
-                                YANG SAYANG UNTUK DILEWATKAN.
-                                </p>
-                                <div className="text-lg font-bold text-gray-800">
-                                Start From: <span className="text-blue-500">Rp 200.000</span>
-                                </div>
-                            </div>
-                        </div>
+                        <>
+                            <Ourservices/>
+                            <motion.div style={{ x: swipeLand }} className='serviceParallax1'></motion.div> 
+                            <motion.div style={{ x: swipeSea }} className='serviceParallax2'></motion.div> 
+                            <motion.div style={{ y: swipeMountain }} className='serviceParallax3'></motion.div> 
+                            <div className='serviceParallax4'></div> 
+                            <motion.div style={{ x: swipeSky }} className='serviceParallax5'></motion.div> 
+                            <motion.div style={{ y: swipeSun }} className='serviceParallax6'></motion.div> 
+                            <motion.div style={{ x: swipeClouds }} className='serviceParallax7'></motion.div> 
+                        </>
                     ):(
                         <div className="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col md:flex-row"></div>
-                    )}
-                    
+                    )}                   
                 </div>
             </div>
-            {/* <div className="flex items-center justify-center w-full h-full overflow-hidden">
-                <div className="max-w-[1366px] h-full m-auto flex items-center justify-center gap-[30px]">
-                    <div className="flex-1 h-[60%]" ref={ref}>
-                        <img className='h-[100%] w-[100%] object-cover' src={`${import.meta.env.BASE_URL}/`+item.img} alt="" />
-                    </div>
-                    <motion.div className="textContainer" style={{ y }}>
-                        <h2 style={{ y }}>{item.title}</h2>
-                        <p>{item.desc}</p>
-                    </motion.div>
-                </div>
-            </div> */}
         </section>
     )
 }
@@ -131,10 +116,25 @@ const Hero = () => {
         },
     };
 
+    const sliderVariants = {
+        initial: {
+            x: -100,
+        },
+        animate: {
+            x: "50%",
+            transition: {
+                repeat: Infinity,
+                repeatType:"mirror",
+                duration: 30,
+            },
+        },
+    };
+
     return (
         <div className="relative w-auto" ref={ref}>
             <div className="sticky top-0 left-0 pt-13 text-center text-orange-400 text-4xl">
                 <motion.div style={{ x: yText }} className='titleParallax flex flex-col items-center h-[100vh] absolute w-[100%]'>
+                    <motion.img src='/assets/hotel_awan_1.png' className='absolute' variants={sliderVariants} initial="initial" animate="animate"/>
                     {/* <h1 className='font-jockey'>Let's <span className='text-[#015B6F] font-jockey'>Travel</span></h1> */}
                     <img className='logo1 mt-[20%]' src='/assets/hero_logo_1.png'/>
                     <span className='font-jockey text-[#646464] text-xl -mt-9'>Mau city tour seru, perjalanan nyaman, atau sewa mobil yang fleksibel?  Kami punya semuanya! <br/> 

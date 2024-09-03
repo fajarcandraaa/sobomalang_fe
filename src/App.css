@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+
 html{
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;

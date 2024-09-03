@@ -4,16 +4,15 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import './index.css'; // This should include Tailwind
 import Hero from './components/hero/hero'
-import Testpage from './components/testpage/Testpage';
 import Navbar from './components/navbar/Navbar';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return <div>
-    <section>
+    {/* <section> */}
       <Hero/>
-    </section>
+    {/* </section> */}
   </div>
 }
 
