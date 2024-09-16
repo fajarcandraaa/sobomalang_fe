@@ -10,7 +10,7 @@ export default {
         inder: ['Inder', 'sans-serif']
       },
       colors: {
-        'custom-white': '#f4f4f4', // Add your custom color here
+        'custom-white': '#fbdebf' // FBDEBF // FFEFCB // '#f4f4f4', // Add your custom color here FFF6E3
       },
     },
   },
